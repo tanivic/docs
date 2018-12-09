@@ -15,7 +15,16 @@
 * Jenkins(CI)
 * Mattermost(chat)
 
+## フォーマットは何がよいか
 
+Markdownを採用する。
+
+### Martkdownを採用する理由
+
+一般的に言われるMarkdownのメリットそのものである。
+Ascii
+
+高度な使い方が必要になってから検討することとする。
 
 ## 実現ステップ
 
