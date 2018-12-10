@@ -61,3 +61,33 @@ id_rsa_github.pub の中身をクリップボードにコピーする。
 kei@kei-ubuntu:~/.ssh$ sudo apt install xsel
 kei@kei-ubuntu:~/.ssh$ cat id_rsa_github.pub | xsel --clipboard --input
 ```
+
+## ubuntu 18.04にdockerをインストールする
+
+```Bash
+kei@kei-ubuntu:~$ sudo apt update
+kei@kei-ubuntu:~$ sudo apt install apt-transport-https ca-certificates curl software-properties-common 
+kei@kei-ubuntu:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+OK
+kei@kei-ubuntu:~$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable test edge"
+kei@kei-ubuntu:~$ sudo apt-get update
+kei@kei-ubuntu:~$ sudo apt install docker-ce
+kei@kei-ubuntu:~$ docker --version
+Docker version 18.09.1-rc1, build bca0068
+```
+
+## Jenkinsをdockerでインストールする
+
+[Jenkins 導入手順 2018年版](https://qiita.com/kmdsbng/items/223c93d09bbd7816b8d5)を参照。
+
+```Bash
+kei@kei-ubuntu:~$ mkdir $HOME/jenkins_home
+kei@kei-ubuntu:~$ sudo docker run    -u root    --rm    -d    -p 8080:8080    -v $HOME/jenkins_home:/var/jenkins_home    -v /var/run/docker.sock:/var/run/docker.sock    jenkinsci/blueocean
+kei@kei-ubuntu:~$ sudo cat /home/kei/jenkins_home/secrets/initialAdminPassword
+```
+http://localhost:8080/ でアクセスできる。
+
+```Bash
+
+```
+
